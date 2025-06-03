@@ -132,6 +132,7 @@ def To_Dictionary_1(df, product_name):
 KBar_dic = To_Dictionary_1(df, product_name)
 
 
+
 #%%
 #######  (3) 改變 KBar 時間長度 & 形成 KBar 字典 (新週期的) & Dataframe #######
 ###### 定義函數: 進行 K 棒更新  &  形成 KBar 字典 (新週期的): 設定cycle_duration可以改成你想要的 KBar 週期
@@ -198,7 +199,6 @@ KBar_dic = Change_Cycle(Date,cycle_duration,KBar_dic,product_name)   ## 設定cy
 
 ###### 將K線 Dictionary 轉換成 Dataframe
 KBar_df = pd.DataFrame(KBar_dic)
-
 
 #%%
 ####### (4) 計算各種技術指標 #######
@@ -889,12 +889,12 @@ if choice == '台積電: 2020.01.02 至 2025.04.10':
     OrderRecord.GeneratorProfitChart(choice='stock',StrategyName='MA')
 if choice == '華碩: 2023.04.17 至 2025.04.14':
     OrderRecord.GeneratorProfitChart(choice='future1',StrategyName='MA')
-if choice == '小台指期貨2024.12到期: 2023.12 至 2024.4.11':
+if choice == '台灣50: 2020.01.02 至 2025.03.06':
     OrderRecord.GeneratorProfitChart(choice='future2',StrategyName='MA')
-if choice == '英業達2020.1.2 至 2024.4.12':
+if choice == '台灣50正2: 2023.04.17 至 2025.04.14':
     OrderRecord.GeneratorProfitChart(choice='stock',StrategyName='MA')
-if choice == '堤維西2020.1.2 至 2024.4.12':
-    OrderRecord.GeneratorProfitChart(choice='stock',StrategyName='MA')
+#if choice == '堤維西2020.1.2 至 2024.4.12':
+#    OrderRecord.GeneratorProfitChart(choice='stock',StrategyName='MA')
 
     
 
