@@ -43,53 +43,50 @@ def load_data(path):
 
 ###### 選擇金融商品
 st.subheader("選擇金融商品: ")
-# choices = ['台積電: 2022.1.1 至 2024.4.9', '大台指2024.12到期: 2024.1 至 2024.4.9']
-choices = ['台積電: 2022.1.1 至 2024.4.9', '大台指期貨2024.12到期: 2023.12 至 2024.4.11', '小台指期貨2024.12到期: 2023.12 至 2024.4.11', '英業達2020.1.2 至 2024.4.12', '堤維西2020.1.2 至 2024.4.12']
+
+choices = ['台積電: 2020.01.02 至 2025.04.10', '華碩: 2023.04.17 至 2025.04.14', '台灣50: 2020.01.02 至 2025.03.06', '台灣50正2: 2023.04.17 至 2025.04.14']
 choice = st.selectbox('選擇金融商品', choices, index=0)
 ##### 读取Pickle文件
 if choice == choices[0] :         ##'台積電: 2022.1.1 至 2024.4.9':
-    df_original = load_data('kbars_2330_2022-01-01-2024-04-09.pkl')
-    product_name = '台積電2330'
-    # df_original = load_data('kbars_2330_2022-01-01-2024-04-09.pkl')
-    # df_original = load_data('kbars_2330_2022-01-01-2022-11-18.pkl')  
-    # df_original = pd.read_pickle('kbars_2330_2022-01-01-2022-11-18.pkl')
-    #df.columns  ## Index(['Unnamed: 0', 'time', 'open', 'low', 'high', 'close', 'volume','amount'], dtype='object')
-    # df_original = df_original.drop('Unnamed: 0',axis=1)
-# if choice == '大台指2024.12到期: 2024.1 至 2024.4.9':
-#     df_original = load_data('kbars_TXF202412_2024-01-01-2024-04-09.pkl')  
+    df_original = load_data('2330_2020.01.02_2025.04.10.pkl')
+    product_name = '台積電 2330'
 if choice == choices[1] :                   ##'大台指期貨2024.12到期: 2023.12 至 2024.4.11':
-    df_original = load_data('kbars_TXF202412_2023-12-21-2024-04-11.pkl')
-    product_name = '大台指期貨'
+    df_original = load_data('2357_2023.04.17_2025.04.14.pkl')
+    product_name = '華碩 2357'
 if choice == choices[2] :                              ##'小台指期貨2024.12到期: 2023.12 至 2024.4.11':
-    df_original = load_data('kbars_MXF202412_2023-12-21-2024-04-11.pkl')
-    product_name = '小台指期貨'
+    df_original = load_data('0050_2020.01.02_2025.03.06.pkl')
+    product_name = '台灣50 0050'
 if choice == choices[3] :                                           ##'英業達2020.1.2 至 2024.4.12':
-    df_original = load_data('kbars_2356_2020-01-01-2024-04-12.pkl')
-    product_name = '英業達2356'
-if choice == choices[4] :                                                       ##'堤維西2020.1.2 至 2024.4.12':
-    df_original = load_data('kbars_1522_2020-01-01-2024-04-12.pkl')
-    product_name = '堤維西1522'
+    df_original = load_data('00631L_2023.04.17_2025.04.14.pkl')
+    product_name = '台灣50正2 00631L'
+#if choice == choices[4] :                                                       ##'堤維西2020.1.2 至 2024.4.12':
+#    df_original = load_data('kbars_1522_2020-01-01-2024-04-12.pkl')
+#    product_name = '堤維西1522'
 
 
 
 
 ###### 選擇資料區間
 st.subheader("選擇資料時間區間")
-if choice == choices[0] :                       ##'台積電: 2022.1.1 至 2024.4.9':
-    start_date = st.text_input('輸入開始日期(日期格式: 2022-01-01), 區間:2022-01-01 至 2024-04-09', '2022-01-01')
-    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-09), 區間:2022-01-01 至 2024-04-09', '2024-04-09')
-if choice == choices[1] :                                   ##'大台指期貨2024.12到期: 2023.12 至 2024.4.11':
-    start_date = st.text_input('輸入開始日期(日期格式: 2023-12-21), 區間:2023-12-21 至 2024-04-11', '2023-12-21')
-    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-11), 區間:2023-12-21 至 2024-04-11', '2024-04-11')
-if choice == choices[2] :                                               ##'小台指期貨2024.12到期: 2023.12 至 2024.4.11':
-    start_date = st.text_input('輸入開始日期(日期格式: 2023-12-21), 區間:2023-12-21 至 2024-04-11', '2023-12-21')
-    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-11), 區間:2023-12-21 至 2024-04-11', '2024-04-11')
-if choice == choices[3] :                                                ##'英業達2020.1.2 至 2024.4.12':
-    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2024-04-12', '2020-01-02')
-    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-12), 區間:2020-01-02 至 2024-04-12', '2024-04-12')
-if choice == choices[4] :                                                             ##'堤維西2020.1.2 至 2024.4.12':
-    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2024-04-12', '2020-01-02')
-    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-12), 區間:2020-01-02 至 2024-04-12', '2024-04-12')
+if choice == choices[0] :                       ##'台積電: 2020.01.02 至 2025.04.10':
+    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2025-04-10', '2020-01-02')
+    end_date = st.text_input('輸入結束日期 (日期格式: 2025-04-10), 區間:2020-01-02 至 2025-04-10', '2025-04-10')
+if choice == choices[1] :                       ##'華碩: 2023.04.17 至 2025.04.14':
+    start_date = st.text_input('輸入開始日期(日期格式: 2023-04-17), 區間:2023-04-17 至 2025-04-14', '2023-04-17')
+    end_date = st.text_input('輸入結束日期 (日期格式: 2025-04-14), 區間:2023-04-17 至 2025-04-14', '2025-04-14')
+if choice == choices[2] :                       ##'台灣50: 2020.01.02 至 2025.03.06':                    
+    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2025-03-06', '2020-01-02')
+    end_date = st.text_input('輸入結束日期 (日期格式: 2025-03-06), 區間:2020-01-02 至 2025-03-06', '2025-03-06')
+if choice == choices[3] :                       ##'台灣50正2: .1.2 至 2024.4.12':
+    start_date = st.text_input('輸入開始日期(日期格式: 2023-04-17), 區間:2023-04-17 至 2025-04-14', '2023-04-17')
+    end_date = st.text_input('輸入結束日期 (日期格式: 2025-04-14), 區間:2023-04-17 至 2025-04-14', '2025-04-14')
+    
+#if choice == choices[3] :                       ##'英業達2020.1.2 至 2024.4.12':
+#    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2024-04-12', '2020-01-02')
+#    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-12), 區間:2020-01-02 至 2024-04-12', '2024-04-12')
+#if choice == choices[4] :                                                             ##'堤維西2020.1.2 至 2024.4.12':
+#    start_date = st.text_input('輸入開始日期(日期格式: 2020-01-02), 區間:2020-01-02 至 2024-04-12', '2020-01-02')
+#    end_date = st.text_input('輸入結束日期 (日期格式: 2024-04-12), 區間:2020-01-02 至 2024-04-12', '2024-04-12')
 
 
 ## 轉變為datetime object.
@@ -888,9 +885,9 @@ else:
 
 
 ##### 畫累計盈虧圖:
-if choice == '台積電: 2022.1.1 至 2024.4.9':
+if choice == '台積電: 2020.01.02 至 2025.04.10':
     OrderRecord.GeneratorProfitChart(choice='stock',StrategyName='MA')
-if choice == '大台指期貨2024.12到期: 2023.12 至 2024.4.11':
+if choice == '華碩: 2023.04.17 至 2025.04.14':
     OrderRecord.GeneratorProfitChart(choice='future1',StrategyName='MA')
 if choice == '小台指期貨2024.12到期: 2023.12 至 2024.4.11':
     OrderRecord.GeneratorProfitChart(choice='future2',StrategyName='MA')
