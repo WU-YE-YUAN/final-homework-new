@@ -285,7 +285,8 @@ class Record():
         ### 创建新的x轴刻度列表，每个值都加1
         new_ticks = range(1, length + 1)
         ### 应用新的x轴刻度
-        plt.xticks(ticks=range(length), labels=new_ticks)
+        #plt.xticks(ticks=range(length), labels=new_ticks)
+        plt.xticks(ticks=range(len(new_ticks)), labels=new_ticks)
         
         #### 顯示繪製圖表
         # plt.show()    # 顯示繪製圖表
