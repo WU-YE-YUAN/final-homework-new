@@ -18,22 +18,35 @@ import streamlit as st
 import streamlit.components.v1 as stc 
 from order_streamlit import Record
 
-import matplotlib.pyplot as plt ####
+#import matplotlib.pyplot as plt ####
 #import matplotlib ####
-from matplotlib import rcParams
-from matplotlib import pyplot as plt
+
+
+#plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
+#plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
+
+import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 
-# 手動載入字型檔案（路徑視實際情況調整）
-font = FontProperties(fname='C:/Windows/Fonts/msjh.ttc', size=12)
+# 指定中文字型的完整路徑（微軟正黑體）
+font_path = 'C:/Windows/Fonts/msjh.ttc'
+font = FontProperties(fname=font_path, size=14)
 
-plt.plot([1, 2, 3], [1, 4, 9])
-plt.title('中文標題', fontproperties=font)
-plt.xlabel('X軸', fontproperties=font)
-plt.ylabel('Y軸', fontproperties=font)
+# 繪圖
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
 
-plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
-plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
+plt.figure(figsize=(8, 5))
+plt.plot(x, y, marker='o')
+plt.title('這是中文標題', fontproperties=font)
+plt.xlabel('X軸標籤', fontproperties=font)
+plt.ylabel('Y軸標籤', fontproperties=font)
+
+# 解決負號顯示錯誤問題
+plt.rcParams['axes.unicode_minus'] = False
+
+plt.grid(True)
+plt.show()
 
 #%%
 ####### (1) 開始設定 #######
