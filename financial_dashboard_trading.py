@@ -719,8 +719,12 @@ if choice_strategy == choices_strategies[1]:
     ##### 選擇參數
     with st.expander("<策略參數設定>: 交易停損量、長RSI的K棒週期數目、短RSI的K棒週期數目、購買數量"):
         MoveStopLoss = st.slider('選擇程式交易停損量(股票:每股價格; 期貨(大小台指):台股指數點數. 例如: 股票進場做多時, 取30代表停損價格為目前每股價格減30元; 大小台指進場做多時, 取30代表停損指數為目前台股指數減30點)', 0, 100, 30, key='MoveStopLoss')
-        LongRSIPeriod = st.slider('設定計算長RSI的 K棒週期數目(整數, 例如 10)', 0, 100, 10, key='visualization_RSI_long')
-        ShortRSIPeriod = st.slider('設定計算短RSI的 K棒週期數目(整數, 例如 2)', 0, 100, 2, key='visualization_RSI_short')
+        #LongRSIPeriod = st.slider('設定計算長RSI的 K棒週期數目(整數, 例如 10)', 0, 100, 10, key='visualization_RSI_long')
+        #ShortRSIPeriod = st.slider('設定計算短RSI的 K棒週期數目(整數, 例如 2)', 0, 100, 2, key='visualization_RSI_short')
+        
+        LongRSIPeriod = st.slider('設定計算長RSI的 K棒週期數目(整數, 例如 10)', 0, 200, 10, key='trading_RSI_long')
+        ShortRSIPeriod = st.slider('設定計算長RSI的 K棒週期數目(整數, 例如 10)', 0, 200, 10, key='trading_RSI_short')
+
         Order_Quantity = st.slider('選擇購買數量(股票單位為張數(一張為1000股); 期貨單位為口數)', 1, 100, 1, key='Order_Quantity')
     
         #### 計算 RSI指標長短線, 以及定義中線
