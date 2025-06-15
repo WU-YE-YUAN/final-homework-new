@@ -18,35 +18,14 @@ import streamlit as st
 import streamlit.components.v1 as stc 
 from order_streamlit import Record
 
-#import matplotlib.pyplot as plt ####
-#import matplotlib ####
+import matplotlib.pyplot as plt 
+import matplotlib 
 
 
-#plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
-#plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
+plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
+plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
 
-import matplotlib.pyplot as plt
-from matplotlib.font_manager import FontProperties
 
-# 指定中文字型的完整路徑（微軟正黑體）
-font_path = 'C:/Windows/Fonts/msjh.ttc'
-font = FontProperties(fname=font_path, size=14)
-
-# 繪圖
-x = [1, 2, 3, 4, 5]
-y = [2, 3, 5, 7, 11]
-
-plt.figure(figsize=(8, 5))
-plt.plot(x, y, marker='o')
-plt.title('這是中文標題', fontproperties=font)
-plt.xlabel('X軸標籤', fontproperties=font)
-plt.ylabel('Y軸標籤', fontproperties=font)
-
-# 解決負號顯示錯誤問題
-plt.rcParams['axes.unicode_minus'] = False
-
-plt.grid(True)
-plt.show()
 
 #%%
 ####### (1) 開始設定 #######
