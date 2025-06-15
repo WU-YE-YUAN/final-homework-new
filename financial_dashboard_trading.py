@@ -17,8 +17,20 @@ import pandas as pd
 import streamlit as st 
 import streamlit.components.v1 as stc 
 from order_streamlit import Record
-import matplotlib.pyplot as plt
-import matplotlib
+
+import matplotlib.pyplot as plt ####
+#import matplotlib ####
+from matplotlib import rcParams
+from matplotlib import pyplot as plt
+from matplotlib.font_manager import FontProperties
+
+# 手動載入字型檔案（路徑視實際情況調整）
+font = FontProperties(fname='C:/Windows/Fonts/msjh.ttc', size=12)
+
+plt.plot([1, 2, 3], [1, 4, 9])
+plt.title('中文標題', fontproperties=font)
+plt.xlabel('X軸', fontproperties=font)
+plt.ylabel('Y軸', fontproperties=font)
 
 plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
 plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
