@@ -20,6 +20,9 @@ from order_streamlit import Record
 import matplotlib.pyplot as plt
 import matplotlib
 
+plt.rcParams['font.family'] = 'Microsoft JhengHei'  # 設定顯示中文的字體
+plt.rcParams['axes.unicode_minus'] = False          # 避免負號 '-' 顯示為亂碼
+
 #%%
 ####### (1) 開始設定 #######
 ###### 設定網頁標題介面 
